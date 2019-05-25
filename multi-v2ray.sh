@@ -20,7 +20,7 @@ CHINESE=0
 
 BASE_SOURCE_PATH="https://raw.githubusercontent.com/Jrohy/multi-v2ray/master"
 
-CLEAN_IPTABLES_SHELL="$BASE_SOURCE_PATH/v2ray_util/global_setting/clean_iptables.sh"
+#CLEAN_IPTABLES_SHELL="$BASE_SOURCE_PATH/v2ray_util/global_setting/clean_iptables.sh"
 
 BASH_COMPLETION_SHELL="$BASE_SOURCE_PATH/v2ray.bash"
 
@@ -93,7 +93,7 @@ removeV2Ray() {
     rm -rf /etc/init.d/v2ray  >/dev/null 2>&1
 
     #清理v2ray相关iptable规则
-    bash <(curl -L -s $CLEAN_IPTABLES_SHELL)
+    #bash <(curl -L -s $CLEAN_IPTABLES_SHELL)
 
     #卸载multi-v2ray
     pip uninstall v2ray_util -y
