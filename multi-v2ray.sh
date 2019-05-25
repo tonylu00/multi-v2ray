@@ -102,15 +102,15 @@ removeV2Ray() {
     rm -rf /etc/v2ray_util >/dev/null 2>&1
 
     #删除v2ray定时更新任务
-    crontab -l|sed '/SHELL=/d;/v2ray/d' > crontab.txt
-    crontab crontab.txt >/dev/null 2>&1
-    rm -f crontab.txt >/dev/null 2>&1
+    #crontab -l|sed '/SHELL=/d;/v2ray/d' > crontab.txt
+    #crontab crontab.txt >/dev/null 2>&1
+    #rm -f crontab.txt >/dev/null 2>&1
 
-    if [[ ${OS} == 'CentOS' || ${OS} == 'Fedora' ]];then
-        service crond restart >/dev/null 2>&1
-    else
-        service cron restart >/dev/null 2>&1
-    fi
+    #if [[ ${OS} == 'CentOS' || ${OS} == 'Fedora' ]];then
+    #    service crond restart >/dev/null 2>&1
+    #else
+    #    service cron restart >/dev/null 2>&1
+    #fi
 
     #删除multi-v2ray环境变量
     sed -i '/v2ray/d' ~/$ENV_FILE
@@ -186,10 +186,10 @@ planUpdate(){
     else
         LOCAL_TIME=3
     fi
-    OLD_CRONTAB=$(crontab -l)
+    #OLD_CRONTAB=$(crontab -l)
     echo "SHELL=/bin/bash" >> crontab.txt
-    echo "${OLD_CRONTAB}" >> crontab.txt
-	echo "0 ${LOCAL_TIME} * * * bash <(curl -L -s https://install.direct/go.sh) | tee -a /root/v2rayUpdate.log && service v2ray restart" >> crontab.txt
+    #echo "${OLD_CRONTAB}" >> crontab.txt
+	#echo "0 ${LOCAL_TIME} * * * bash <(curl -L -s https://install.direct/go.sh) | tee -a /root/v2rayUpdate.log && service v2ray restart" >> crontab.txt
 	#crontab crontab.txt
 	sleep 1
 	#if [[ ${OS} == 'CentOS' || ${OS} == 'Fedora' ]];then
