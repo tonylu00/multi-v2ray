@@ -239,7 +239,7 @@ updateProject() {
 timeSync() {
     if [[ ${INSTALL_WAY} == 0 ]];then
         echo -e "${Info} Time Synchronizing.. ${Font}"
-        ntpdate pool.ntp.org
+        //ntpdate pool.ntp.org
         if [[ $? -eq 0 ]];then 
             echo -e "${OK} Time Sync Success ${Font}"
             echo -e "${OK} now: `date -R`${Font}"
