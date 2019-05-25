@@ -190,13 +190,13 @@ planUpdate(){
     echo "SHELL=/bin/bash" >> crontab.txt
     echo "${OLD_CRONTAB}" >> crontab.txt
 	echo "0 ${LOCAL_TIME} * * * bash <(curl -L -s https://install.direct/go.sh) | tee -a /root/v2rayUpdate.log && service v2ray restart" >> crontab.txt
-	crontab crontab.txt
+	#crontab crontab.txt
 	sleep 1
-	if [[ ${OS} == 'CentOS' || ${OS} == 'Fedora' ]];then
-        service crond restart
-	else
-		service cron restart
-	fi
+	#if [[ ${OS} == 'CentOS' || ${OS} == 'Fedora' ]];then
+        #service crond restart
+	#else
+	#	service cron restart
+	#fi
 	rm -f crontab.txt
 	colorEcho ${GREEN} "success open schedule update task: beijing time ${BEIJING_UPDATE_TIME}\n"
 }
